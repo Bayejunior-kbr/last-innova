@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact — InnovaDEV</title>
+    <meta name="description" content="Contactez InnovaDEV à Dakar : téléphone, WhatsApp, e-mail ou formulaire pour parler de votre projet web." />
+    <meta name="theme-color" content="#0F2B5B" />
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="stylesheet" href="fontawesome-5.5/css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/innovadev.css" />
+  </head>
+  <body id="top">
+    <!-- ===================== HÉRO ===================== -->
+    <section id="hero-contact" class="text-white tm-font-big tm-page-hero">
+      <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">
+        <div class="container">
+          <a href="index.html" class="navbar-brand" aria-label="InnovaDEV — accueil">
+            <img src="img/logo-innovadev-blanc.png" alt="InnovaDEV" class="logo-blanc">
+            <img src="img/logo-innovadev.png" alt="InnovaDEV" class="logo-couleur">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Ouvrir le menu">
+            <i class="fas fa-bars navbar-toggler-icon"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item"><a class="nav-link tm-nav-link" href="services.html">Services</a></li>
+              <li class="nav-item"><a class="nav-link tm-nav-link" href="a-propos.html">À propos</a></li>
+              <li class="nav-item"><a class="nav-link tm-nav-link" href="portfolio.html">Portfolio</a></li>
+              <li class="nav-item"><a class="nav-link tm-nav-link" href="equipe.html">Équipe</a></li>
+              <li class="nav-item"><a class="nav-link tm-nav-link current" href="contact.html">Contact</a></li>
+              <li class="nav-item tm-nav-item-cta"><a class="tm-nav-cta" href="contact.html">Démarrer un projet</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="text-center tm-hero-text-container">
+        <div class="tm-hero-text-container-inner">
+          <p class="tm-breadcrumb"><a href="index.html">Accueil</a> &nbsp;/&nbsp; Contact</p>
+          <h1 class="tm-hero-title">Parlons de votre projet</h1>
+          <p class="tm-hero-subtitle">Un site, une application, une boutique en ligne&nbsp;? Écrivez-nous, nous vous répondons rapidement.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== MOYENS DE CONTACT ===================== -->
+    <section class="tm-section-pad-top tm-bg-light" style="padding-bottom: 50px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-6 col-lg-3">
+            <a class="tm-contact-card" href="tel:+221757457002"><div class="ic"><i class="fas fa-phone"></i></div><h3>Téléphone</h3><span>+221 75 745 70 02</span></a>
+          </div>
+          <div class="col-6 col-lg-3">
+            <a class="tm-contact-card" href="https://wa.me/221757457002" target="_blank" rel="noopener"><div class="ic"><i class="fab fa-whatsapp"></i></div><h3>WhatsApp</h3><span>Écrivez-nous directement</span></a>
+          </div>
+          <div class="col-6 col-lg-3">
+            <a class="tm-contact-card" href="mailto:innovadevsn@gmail.com"><div class="ic"><i class="far fa-envelope"></i></div><h3>E-mail</h3><span>innovadevsn@gmail.com</span></a>
+          </div>
+          <div class="col-6 col-lg-3">
+            <a class="tm-contact-card" href="https://www.google.com/maps/search/?api=1&query=HLM+Grand+Yoff%2C+Dakar%2C+S%C3%A9n%C3%A9gal" target="_blank" rel="noopener"><div class="ic"><i class="fas fa-map-marker-alt"></i></div><h3>Adresse</h3><span>HLM Grand Yoff, face stade LSS</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FORMULAIRE ===================== -->
+    <section id="formulaire" class="tm-section-pad-top" style="padding-bottom: 80px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 mb-5">
+            <h2 class="tm-text-primary tm-section-title mb-3">Décrivez votre projet</h2>
+            <p class="mb-4" style="font-size:1.05rem;">Remplissez ce formulaire&nbsp;: plus vous êtes précis, plus notre réponse sera adaptée.</p>
+            <form id="projectForm" class="tm-form-light" novalidate>
+              <div class="row">
+                <div class="col-md-6"><label for="f-name">Nom complet *</label><input id="f-name" class="tm-input-light" type="text" placeholder="Votre nom" required></div>
+                <div class="col-md-6"><label for="f-company">Entreprise / organisation</label><input id="f-company" class="tm-input-light" type="text" placeholder="Facultatif"></div>
+                <div class="col-md-6"><label for="f-email">E-mail *</label><input id="f-email" class="tm-input-light" type="email" placeholder="vous@exemple.com" required></div>
+                <div class="col-md-6"><label for="f-phone">Téléphone</label><input id="f-phone" class="tm-input-light" type="tel" placeholder="77 000 00 00"></div>
+                <div class="col-12">
+                  <label for="f-service">Service souhaité</label>
+                  <select id="f-service" class="tm-input-light">
+                    <option>Création de site web</option>
+                    <option>Application web</option>
+                    <option>E-commerce</option>
+                    <option>Solution SaaS / PWA</option>
+                    <option>Maintenance et amélioration</option>
+                    <option>Je ne sais pas encore</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label>Comment préférez-vous être recontacté&nbsp;?</label>
+                  <div class="tm-radios" role="radiogroup">
+                    <label><input type="radio" name="pref" value="E-mail" checked><span><i class="far fa-envelope"></i> E-mail</span></label>
+                    <label><input type="radio" name="pref" value="Téléphone"><span><i class="fas fa-phone"></i> Téléphone</span></label>
+                    <label><input type="radio" name="pref" value="WhatsApp"><span><i class="fab fa-whatsapp"></i> WhatsApp</span></label>
+                  </div>
+                </div>
+                <div class="col-12"><label for="f-msg">Votre message *</label><textarea id="f-msg" class="tm-input-light" rows="6" placeholder="Présentez votre activité et ce dont vous avez besoin…" required></textarea></div>
+                <div class="col-12">
+                  <p id="f-error" class="text-danger small mb-3" style="display:none;">Merci de remplir votre nom, une adresse e-mail valide et votre message.</p>
+                  <div class="tm-form-actions">
+                    <button type="submit" class="tm-btn-primary"><i class="far fa-paper-plane mr-2"></i>Envoyer par e-mail</button>
+                    <button type="button" id="sendWa" class="tm-btn-wa"><i class="fab fa-whatsapp mr-2"></i>Envoyer sur WhatsApp</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-lg-4 offset-lg-1">
+            <div class="tm-side">
+              <h3>InnovaDEV</h3>
+              <p>Agence de développement web et de solutions numériques.</p>
+              <div class="row-i"><i class="fas fa-map-marker-alt"></i><span>Rue GY-250, HLM Grand Yoff, face stade LSS, Dakar<br><small style="color:#BFE2FF;">Non loin du terminus des navettes Dem Dikk</small></span></div>
+              <div class="row-i"><i class="fas fa-phone"></i><span>+221 75 745 70 02</span></div>
+              <div class="row-i"><i class="far fa-envelope"></i><span>innovadevsn@gmail.com</span></div>
+              <div class="row-i"><i class="far fa-clock"></i><span>Ouvert 7j/7, de 8h à 22h</span></div>
+              <p class="mt-4 mb-2" style="font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;color:#BFE2FF;">Suivez-nous</p>
+              <div class="tm-social-links">
+              <a href="https://www.facebook.com/share/1DT9iAg8kE/" target="_blank" rel="noopener" data-social="facebook" aria-label="Facebook d’InnovaDEV"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/innovadev_sn" target="_blank" rel="noopener" data-social="instagram" aria-label="Instagram d’InnovaDEV (@innovadev_sn)"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.tiktok.com/@innovadev_sn" target="_blank" rel="noopener" data-social="tiktok" aria-label="TikTok d’InnovaDEV (@innovadev_sn)"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M16.6 2h-3.4v13.1a3.1 3.1 0 1 1-3.1-3.1c.3 0 .6 0 .9.1V8.6a6.6 6.6 0 1 0 5.6 6.5V8.5a8 8 0 0 0 4.7 1.5V6.6a4.7 4.7 0 0 1-4.7-4.6z"/></svg></a>
+            </div>
+            </div>
+            <div class="tm-map" style="position:relative;">
+              <a href="https://www.google.com/maps/search/?api=1&query=HLM+Grand+Yoff%2C+Dakar%2C+S%C3%A9n%C3%A9gal" target="_blank" rel="noopener" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:8px;color:var(--bleu);"><i class="fas fa-map-marked-alt"></i> Voir notre emplacement sur Google Maps</a>
+              <iframe style="position:relative;z-index:2;" title="Plan d’accès InnovaDEV — HLM Grand Yoff, Dakar" loading="lazy" src="https://maps.google.com/maps?q=HLM%20Grand%20Yoff%2C%20Dakar%2C%20S%C3%A9n%C3%A9gal&z=15&output=embed"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PIED DE PAGE ===================== -->
+    <footer class="tm-site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <a href="index.html"><img src="img/logo-innovadev-blanc.png" alt="InnovaDEV" class="tm-footer-logo"></a>
+            <p class="tm-footer-text">Agence de développement web à Dakar. Vos idées prennent vie avec le numérique.</p>
+            <div class="tm-social-links">
+              <a href="https://www.facebook.com/share/1DT9iAg8kE/" target="_blank" rel="noopener" data-social="facebook" aria-label="Facebook d’InnovaDEV"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/innovadev_sn" target="_blank" rel="noopener" data-social="instagram" aria-label="Instagram d’InnovaDEV (@innovadev_sn)"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.tiktok.com/@innovadev_sn" target="_blank" rel="noopener" data-social="tiktok" aria-label="TikTok d’InnovaDEV (@innovadev_sn)"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M16.6 2h-3.4v13.1a3.1 3.1 0 1 1-3.1-3.1c.3 0 .6 0 .9.1V8.6a6.6 6.6 0 1 0 5.6 6.5V8.5a8 8 0 0 0 4.7 1.5V6.6a4.7 4.7 0 0 1-4.7-4.6z"/></svg></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4 offset-lg-1">
+            <h4 class="tm-footer-title">Navigation</h4>
+            <ul class="tm-footer-links">
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="a-propos.html">À propos</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="equipe.html">Équipe</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-12 mb-4">
+            <h4 class="tm-footer-title">Contact</h4>
+            <ul class="tm-footer-contact">
+              <li><a href="tel:+221757457002"><i class="fas fa-phone"></i>+221 75 745 70 02</a></li>
+              <li><a href="https://wa.me/221757457002" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i>WhatsApp</a></li>
+              <li><a href="mailto:innovadevsn@gmail.com"><i class="far fa-envelope"></i>innovadevsn@gmail.com</a></li>
+              <li><a href="https://www.google.com/maps/search/?api=1&query=HLM+Grand+Yoff%2C+Dakar%2C+S%C3%A9n%C3%A9gal" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i>HLM Grand Yoff, face stade LSS, Dakar</a></li>
+              <li><span class="tm-footer-hours"><i class="far fa-clock"></i>7j/7, de 8h à 22h</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="tm-footer-bottom">
+          <span>&copy; <span id="year">2026</span> InnovaDEV. Tous droits réservés.</span>
+          <a href="#top" class="tm-back-top" aria-label="Revenir en haut"><i class="fas fa-arrow-up"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    
+
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/easing.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/pages.js"></script>
+  </body>
+</html>

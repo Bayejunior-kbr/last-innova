@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio — InnovaDEV</title>
+    <meta name="description" content="Les réalisations d'InnovaDEV, agence de développement web à Dakar : sites web, applications, e-commerce, SaaS et PWA." />
+    <meta name="theme-color" content="#0F2B5B" />
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="stylesheet" href="fontawesome-5.5/css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/innovadev.css" />
+    <script>function tmImgFallback(i){i.className+=' is-broken';}</script>
+  </head>
+  <body id="top">
+    <!-- ===================== HÉRO ===================== -->
+    <section id="hero-portfolio" class="text-white tm-font-big tm-page-hero">
+      <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">
+        <div class="container">
+          <a href="index.html" class="navbar-brand" aria-label="InnovaDEV — accueil">
+            <img src="img/logo-innovadev-blanc.png" alt="InnovaDEV" class="logo-blanc">
+            <img src="img/logo-innovadev.png" alt="InnovaDEV" class="logo-couleur">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Ouvrir le menu">
+            <i class="fas fa-bars navbar-toggler-icon"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item"><a class="nav-link tm-nav-link" href="services.html">Services</a></li>
+              <li class="nav-item"><a class="nav-link tm-nav-link" href="a-propos.html">À propos</a></li>
+              <li class="nav-item"><a class="nav-link tm-nav-link current" href="portfolio.html">Portfolio</a></li>
+              <li class="nav-item"><a class="nav-link tm-nav-link" href="equipe.html">Équipe</a></li>
+              <li class="nav-item"><a class="nav-link tm-nav-link" href="contact.html">Contact</a></li>
+              <li class="nav-item tm-nav-item-cta"><a class="tm-nav-cta" href="contact.html">Démarrer un projet</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="text-center tm-hero-text-container">
+        <div class="tm-hero-text-container-inner">
+          <p class="tm-breadcrumb"><a href="index.html">Accueil</a> &nbsp;/&nbsp; Portfolio</p>
+          <h1 class="tm-hero-title">Nos réalisations</h1>
+          <p class="tm-hero-subtitle">Sites web, applications et solutions numériques conçus à Dakar pour des entrepreneurs, des entreprises et des organisations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJETS ===================== -->
+    <section id="projets" class="tm-section-pad-top" style="background: var(--fond);">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <h2 class="tm-text-primary tm-section-title mb-4">Projets</h2>
+            <p class="mx-auto tm-section-desc mb-3">Boutiques en ligne, plateformes, applications et sites vitrines&nbsp;: une sélection de projets réalisés par InnovaDEV. Cliquez sur un projet pour visiter le site.</p>
+          </div>
+        </div>
+
+        <div class="tm-filters" role="group" aria-label="Filtrer les projets">
+          <button class="tm-filter active" data-filter="all" aria-pressed="true">Tous</button>
+          <button class="tm-filter" data-filter="web" aria-pressed="false">Sites web</button>
+          <button class="tm-filter" data-filter="app" aria-pressed="false">Applications</button>
+          <button class="tm-filter" data-filter="shop" aria-pressed="false">E-commerce</button>
+          <button class="tm-filter" data-filter="saas" aria-pressed="false">SaaS &amp; PWA</button>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-4 col-xl-3 tm-project-col" data-cat="shop">
+            <article class="tm-project">
+              <a class="tm-project-thumb tm-project-shot" href="https://maison-zale-senteurs.com/" target="_blank" rel="noopener" aria-label="Ouvrir le site Maison Zale Senteurs">
+                <div class="tm-browser">
+                  <div class="tm-browser-bar"><span></span><span></span><span></span><em>maison-zale-senteurs.com</em></div>
+                  <img src="img/projets/maison-zale.jpg" alt="Capture d’écran du site Maison Zale Senteurs" loading="lazy" onerror="tmImgFallback(this)">
+                  <div class="tm-shot-fallback">Maison Zale Senteurs</div>
+                </div>
+              </a>
+              <div class="tm-project-body">
+                <div class="tm-project-cat">E-commerce</div>
+                <h3>Maison Zale Senteurs</h3>
+                <p>Parfumerie premium au Sénégal : collections femme, homme et unisexe, commande directe sur WhatsApp et livraison dans tout le pays.</p>
+                <div class="tm-techs"><span>Parfumerie</span><span>Commande WhatsApp</span><span>Livraison</span></div>
+                <a href="https://maison-zale-senteurs.com/" target="_blank" rel="noopener" class="tm-project-link">Voir le site <i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3 tm-project-col" data-cat="saas">
+            <article class="tm-project">
+              <a class="tm-project-thumb tm-project-shot" href="https://creneau-sn.com/" target="_blank" rel="noopener" aria-label="Ouvrir le site Créneau SN">
+                <div class="tm-browser">
+                  <div class="tm-browser-bar"><span></span><span></span><span></span><em>creneau-sn.com</em></div>
+                  <img src="img/projets/creneau-sn.jpg" alt="Capture d’écran du site Créneau SN" loading="lazy" onerror="tmImgFallback(this)">
+                  <div class="tm-shot-fallback">Créneau SN</div>
+                </div>
+              </a>
+              <div class="tm-project-body">
+                <div class="tm-project-cat">Plateforme SaaS</div>
+                <h3>Créneau SN</h3>
+                <p>Plateforme de gestion d’auto-école : réservation de créneaux, suivi des élèves, gestion des moniteurs et formation en ligne.</p>
+                <div class="tm-techs"><span>SaaS</span><span>Réservations</span><span>Suivi des élèves</span></div>
+                <a href="https://creneau-sn.com/" target="_blank" rel="noopener" class="tm-project-link">Voir le site <i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3 tm-project-col" data-cat="app">
+            <article class="tm-project">
+              <a class="tm-project-thumb tm-project-shot" href="https://dakarfooddelivery.com/" target="_blank" rel="noopener" aria-label="Ouvrir le site Dakar Food Delivery">
+                <div class="tm-browser">
+                  <div class="tm-browser-bar"><span></span><span></span><span></span><em>dakarfooddelivery.com</em></div>
+                  <img src="img/projets/dakar-food-delivery.jpg" alt="Capture d’écran du site Dakar Food Delivery" loading="lazy" onerror="tmImgFallback(this)">
+                  <div class="tm-shot-fallback">Dakar Food Delivery</div>
+                </div>
+              </a>
+              <div class="tm-project-body">
+                <div class="tm-project-cat">Application web</div>
+                <h3>Dakar Food Delivery</h3>
+                <p>Commande et livraison de repas à Dakar depuis les restaurants partenaires, en livraison à domicile ou à emporter.</p>
+                <div class="tm-techs"><span>Livraison</span><span>Restaurants</span><span>Commande en ligne</span></div>
+                <a href="https://dakarfooddelivery.com/" target="_blank" rel="noopener" class="tm-project-link">Voir le site <i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3 tm-project-col" data-cat="saas">
+            <article class="tm-project">
+              <a class="tm-project-thumb tm-project-shot" href="https://sama-commande.com/" target="_blank" rel="noopener" aria-label="Ouvrir le site Sama Commande">
+                <div class="tm-browser">
+                  <div class="tm-browser-bar"><span></span><span></span><span></span><em>sama-commande.com</em></div>
+                  <img src="img/projets/sama-commande.jpg" alt="Capture d’écran du site Sama Commande" loading="lazy" onerror="tmImgFallback(this)">
+                  <div class="tm-shot-fallback">Sama Commande</div>
+                </div>
+              </a>
+              <div class="tm-project-body">
+                <div class="tm-project-cat">Plateforme SaaS</div>
+                <h3>Sama Commande</h3>
+                <p>Gestion des commandes, des factures et des dettes clients depuis le téléphone, pensée pour les commerçants au Sénégal.</p>
+                <div class="tm-techs"><span>Factures</span><span>Commandes</span><span>Mobile</span></div>
+                <a href="https://sama-commande.com/" target="_blank" rel="noopener" class="tm-project-link">Voir le site <i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3 tm-project-col" data-cat="saas">
+            <article class="tm-project">
+              <a class="tm-project-thumb tm-project-shot" href="https://shop-master-vert.vercel.app/" target="_blank" rel="noopener" aria-label="Ouvrir le site MaCaisse">
+                <div class="tm-browser">
+                  <div class="tm-browser-bar"><span></span><span></span><span></span><em>shop-master-vert.vercel.app</em></div>
+                  <img src="img/projets/macaisse.jpg" alt="Capture d’écran du site MaCaisse" loading="lazy" onerror="tmImgFallback(this)">
+                  <div class="tm-shot-fallback">MaCaisse</div>
+                </div>
+              </a>
+              <div class="tm-project-body">
+                <div class="tm-project-cat">Application SaaS</div>
+                <h3>MaCaisse</h3>
+                <p>Application de caisse et de gestion de stock pour les boutiques : encaissement en FCFA et suivi du stock, depuis le téléphone ou l’ordinateur.</p>
+                <div class="tm-techs"><span>Caisse</span><span>Gestion de stock</span><span>FCFA</span></div>
+                <a href="https://shop-master-vert.vercel.app/" target="_blank" rel="noopener" class="tm-project-link">Voir le site <i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3 tm-project-col" data-cat="web">
+            <article class="tm-project">
+              <a class="tm-project-thumb tm-project-shot" href="https://isarsn.com/" target="_blank" rel="noopener" aria-label="Ouvrir le site ISAR">
+                <div class="tm-browser">
+                  <div class="tm-browser-bar"><span></span><span></span><span></span><em>isarsn.com</em></div>
+                  <img src="img/projets/isar.jpg" alt="Capture d’écran du site ISAR" loading="lazy" onerror="tmImgFallback(this)">
+                  <div class="tm-shot-fallback">ISAR</div>
+                </div>
+              </a>
+              <div class="tm-project-body">
+                <div class="tm-project-cat">Site institutionnel</div>
+                <h3>ISAR</h3>
+                <p>Site institutionnel d’une société dakaroise de recherche et sauvetage (SAR) : formations certifiantes, consultance et déploiement de systèmes en Afrique francophone.</p>
+                <div class="tm-techs"><span>Site institutionnel</span><span>Formations</span><span>Consultance</span></div>
+                <a href="https://isarsn.com/" target="_blank" rel="noopener" class="tm-project-link">Voir le site <i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3 tm-project-col" data-cat="web">
+            <article class="tm-project">
+              <a class="tm-project-thumb tm-project-shot" href="https://omzo-portfolio-online-git-master-amepros-projects.vercel.app/" target="_blank" rel="noopener" aria-label="Ouvrir le site Omzo Portfolio">
+                <div class="tm-browser">
+                  <div class="tm-browser-bar"><span></span><span></span><span></span><em>Oumar Samb · Buur Graphics</em></div>
+                  <img src="img/projets/omzo-portfolio.jpg" alt="Capture d’écran du site Omzo Portfolio" loading="lazy" onerror="tmImgFallback(this)">
+                  <div class="tm-shot-fallback">Omzo Portfolio</div>
+                </div>
+              </a>
+              <div class="tm-project-body">
+                <div class="tm-project-cat">Portfolio</div>
+                <h3>Omzo Portfolio</h3>
+                <p>Portfolio d’un graphiste, photographe et vidéaste à Dakar : présentation des créations et prise de contact pour de nouveaux projets.</p>
+                <div class="tm-techs"><span>Portfolio</span><span>Galerie</span><span>Responsive</span></div>
+                <a href="https://omzo-portfolio-online-git-master-amepros-projects.vercel.app/" target="_blank" rel="noopener" class="tm-project-link">Voir le site <i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3 tm-project-col" data-cat="app">
+            <article class="tm-project">
+              <a class="tm-project-thumb tm-project-shot" href="https://liaison-xi.vercel.app" target="_blank" rel="noopener" aria-label="Ouvrir le site Liaison">
+                <div class="tm-browser">
+                  <div class="tm-browser-bar"><span></span><span></span><span></span><em>liaison-xi.vercel.app</em></div>
+                  <img src="img/projets/liaison.jpg" alt="Capture d’écran du site Liaison" loading="lazy" onerror="tmImgFallback(this)">
+                  <div class="tm-shot-fallback">Liaison</div>
+                </div>
+              </a>
+              <div class="tm-project-body">
+                <div class="tm-project-cat">Application web</div>
+                <h3>Liaison</h3>
+                <p>Application pour les couples à distance : chat, souvenirs, projets communs, cagnotte, sorties et jeux à deux.</p>
+                <div class="tm-techs"><span>Chat</span><span>Application</span><span>Espace à deux</span></div>
+                <a href="https://liaison-xi.vercel.app" target="_blank" rel="noopener" class="tm-project-link">Voir le site <i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3 tm-project-col" data-cat="web">
+            <article class="tm-project">
+              <a class="tm-project-thumb tm-project-shot" href="https://abdou-sow.vercel.app/" target="_blank" rel="noopener" aria-label="Ouvrir le site Abdou Sow">
+                <div class="tm-browser">
+                  <div class="tm-browser-bar"><span></span><span></span><span></span><em>abdou-sow.vercel.app</em></div>
+                  <img src="img/projets/abdou-sow.jpg" alt="Capture d’écran du site Abdou Sow" loading="lazy" onerror="tmImgFallback(this)">
+                  <div class="tm-shot-fallback">Abdou Sow</div>
+                </div>
+              </a>
+              <div class="tm-project-body">
+                <div class="tm-project-cat">Site personnel</div>
+                <h3>Abdou Sow</h3>
+                <p>Site officiel d’un champion international de boxe : palmarès, événement THE RETURN 2026 et appel à partenaires.</p>
+                <div class="tm-techs"><span>Site vitrine</span><span>Événement</span><span>Partenaires</span></div>
+                <a href="https://abdou-sow.vercel.app/" target="_blank" rel="noopener" class="tm-project-link">Voir le site <i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3 tm-project-col" data-cat="shop">
+            <article class="tm-project">
+              <div class="tm-project-thumb tm-project-shot">
+                <div class="tm-browser">
+                  <div class="tm-browser-bar"><span></span><span></span><span></span><em>nahwashop.com</em></div>
+                  
+                  <div class="tm-shot-fallback">Nahwa Shop</div>
+                </div>
+              </div>
+              <div class="tm-project-body">
+                <div class="tm-project-cat">E-commerce</div>
+                <h3>Nahwa Shop</h3>
+                <p>Boutique en ligne avec catalogue de produits et parcours d’achat simple, pensée pour vendre sur mobile comme sur ordinateur.</p>
+                <div class="tm-techs"><span>Boutique en ligne</span><span>Catalogue</span><span>Commandes</span></div>
+                <span class="tm-project-link tm-soon"><i class="far fa-clock"></i> Bientôt en ligne</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROCESSUS ===================== -->
+    <section class="tm-band bg-code">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <h2 class="tm-section-title mb-4">Comment nous travaillons</h2>
+            <p class="mx-auto tm-section-desc">Une méthode simple et transparente, de la première idée à la mise en ligne.</p>
+          </div>
+          <div class="col-sm-6 col-lg-3 tm-step"><div class="tm-step-num">01</div><h3>Écoute</h3><p>Nous comprenons votre activité, vos objectifs et votre budget.</p></div>
+          <div class="col-sm-6 col-lg-3 tm-step"><div class="tm-step-num">02</div><h3>Conception</h3><p>Maquettes et choix techniques validés ensemble avant de coder.</p></div>
+          <div class="col-sm-6 col-lg-3 tm-step"><div class="tm-step-num">03</div><h3>Développement</h3><p>Un site rapide, responsive et testé sur tous les écrans.</p></div>
+          <div class="col-sm-6 col-lg-3 tm-step"><div class="tm-step-num">04</div><h3>Lancement &amp; suivi</h3><p>Mise en ligne, prise en main et maintenance dans la durée.</p></div>
+          <div class="col-12 text-center mt-4">
+            <a href="contact.html" class="tm-btn-primary" style="background:var(--accent)">Votre projet pourrait être le prochain</a>
+          </div>
+        </div>
+      </div>
+      <div class="tm-bg-overlay"></div>
+    </section>
+
+    <!-- ===================== PIED DE PAGE ===================== -->
+    <footer class="tm-site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <a href="index.html"><img src="img/logo-innovadev-blanc.png" alt="InnovaDEV" class="tm-footer-logo"></a>
+            <p class="tm-footer-text">Agence de développement web à Dakar. Vos idées prennent vie avec le numérique.</p>
+            <div class="tm-social-links">
+              <a href="https://www.facebook.com/share/1DT9iAg8kE/" target="_blank" rel="noopener" data-social="facebook" aria-label="Facebook d’InnovaDEV"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/innovadev_sn" target="_blank" rel="noopener" data-social="instagram" aria-label="Instagram d’InnovaDEV (@innovadev_sn)"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.tiktok.com/@innovadev_sn" target="_blank" rel="noopener" data-social="tiktok" aria-label="TikTok d’InnovaDEV (@innovadev_sn)"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M16.6 2h-3.4v13.1a3.1 3.1 0 1 1-3.1-3.1c.3 0 .6 0 .9.1V8.6a6.6 6.6 0 1 0 5.6 6.5V8.5a8 8 0 0 0 4.7 1.5V6.6a4.7 4.7 0 0 1-4.7-4.6z"/></svg></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4 offset-lg-1">
+            <h4 class="tm-footer-title">Navigation</h4>
+            <ul class="tm-footer-links">
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="a-propos.html">À propos</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="equipe.html">Équipe</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-12 mb-4">
+            <h4 class="tm-footer-title">Contact</h4>
+            <ul class="tm-footer-contact">
+              <li><a href="tel:+221757457002"><i class="fas fa-phone"></i>+221 75 745 70 02</a></li>
+              <li><a href="https://wa.me/221757457002" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i>WhatsApp</a></li>
+              <li><a href="mailto:innovadevsn@gmail.com"><i class="far fa-envelope"></i>innovadevsn@gmail.com</a></li>
+              <li><a href="https://www.google.com/maps/search/?api=1&query=HLM+Grand+Yoff%2C+Dakar%2C+S%C3%A9n%C3%A9gal" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i>HLM Grand Yoff, face stade LSS, Dakar</a></li>
+              <li><span class="tm-footer-hours"><i class="far fa-clock"></i>7j/7, de 8h à 22h</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="tm-footer-bottom">
+          <span>&copy; <span id="year">2026</span> InnovaDEV. Tous droits réservés.</span>
+          <a href="#top" class="tm-back-top" aria-label="Revenir en haut"><i class="fas fa-arrow-up"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/easing.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/pages.js"></script>
+  </body>
+</html>
