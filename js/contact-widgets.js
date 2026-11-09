@@ -3,6 +3,28 @@
   var welcome = "Bonjour ! Je suis l’assistant virtuel d’InnovaDEV. Je peux vous renseigner sur nos services et vous aider à préparer votre projet.";
   var historyKey = "innovadev-chat-history-v1";
   var conversation = [];
+  var preparedFaq = [
+    {
+      question: "Quels services proposez-vous ?",
+      answer: "Nous réalisons des sites vitrines, des boutiques en ligne, des applications web, des solutions SaaS/PWA et la maintenance de sites ou d’applications. Les fonctionnalités sont définies selon votre activité et vos besoins."
+    },
+    {
+      question: "Comment obtenir un devis ?",
+      answer: "Décrivez votre activité, votre objectif et les fonctionnalités souhaitées dans le formulaire de contact ou écrivez-nous sur WhatsApp au +221 75 745 70 02. Après un premier échange, nous vous préparons un devis détaillé adapté au projet."
+    },
+    {
+      question: "Comment se déroule un projet ?",
+      answer: "Nous commençons par comprendre votre activité, vos objectifs et votre budget. Nous validons ensuite la conception, développons et testons la solution, puis nous la mettons en ligne et vous accompagnons pour la suite."
+    },
+    {
+      question: "Combien coûte un site web ?",
+      answer: "Le prix dépend du nombre de pages, du design et des fonctionnalités. Après avoir discuté de votre besoin, nous vous envoyons un devis détaillé ; il n’y a pas de tarif unique pour tous les projets."
+    },
+    {
+      question: "Combien de temps faut-il pour réaliser mon projet ?",
+      answer: "Le délai dépend de la taille et des fonctionnalités du projet. Un planning précis est communiqué avec le devis, puis nous vous tenons informé à chaque étape."
+    }
+  ];
 
   var wrapper = document.createElement("div");
   wrapper.className = "id-contact-widgets";
@@ -15,8 +37,11 @@
       '</header>' +
       '<div class="id-chat-messages" id="id-chat-messages" role="log" aria-live="polite" aria-relevant="additions text"></div>' +
       '<div class="id-chat-suggestions" aria-label="Questions fréquentes">' +
-        '<button type="button" data-question="Quels services proposez-vous ?">Vos services</button>' +
-        '<button type="button" data-question="Comment obtenir un devis ?">Demander un devis</button>' +
+        '<button type="button" data-question="Quels services proposez-vous ?">Nos services</button>' +
+        '<button type="button" data-question="Comment obtenir un devis ?">Obtenir un devis</button>' +
+        '<button type="button" data-question="Comment se déroule un projet ?">Étapes d’un projet</button>' +
+        '<button type="button" data-question="Combien coûte un site web ?">Prix d’un site</button>' +
+        '<button type="button" data-question="Combien de temps faut-il pour réaliser mon projet ?">Délais d’un projet</button>' +
       '</div>' +
       '<form class="id-chat-form" id="id-chat-form">' +
         '<label class="sr-only" for="id-chat-input">Votre message</label>' +
@@ -49,6 +74,10 @@
     messages.appendChild(item);
     messages.scrollTop = messages.scrollHeight;
     return item;
+  }
+
+  function normalizeQuestion(text) {
+    return text.toLocaleLowerCase("fr").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
   }
 
   function saveConversation() {
@@ -120,6 +149,15 @@
     saveConversation();
     input.value = "";
     suggestions.hidden = true;
+
+    var faq = preparedFaq.find(function (item) { return normalizeQuestion(item.question) === normalizeQuestion(text); });
+    if (faq) {
+      addMessage(faq.answer, "assistant");
+      conversation.push({ role: "assistant", content: faq.answer });
+      if (conversation.length > 40) conversation = conversation.slice(-40);
+      saveConversation();
+      return;
+    }
 
     send.disabled = true;
     send.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i>';
