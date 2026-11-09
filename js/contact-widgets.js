@@ -78,6 +78,20 @@
     }
   }
 
+  function getQuickReply(question) {
+    var normalized = question.toLocaleLowerCase("fr").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    if (/\b(service|services|proposez|faites|activite)\b/.test(normalized)) {
+      return "Nous créons des sites et applications web, des boutiques e-commerce et des solutions SaaS/PWA. Nous proposons aussi la maintenance de vos outils numériques.";
+    }
+    if (/\b(devis|prix|tarif|cout)\b/.test(normalized)) {
+      return "Pour un devis personnalisé, écrivez-nous sur WhatsApp au +221 75 745 70 02 en décrivant votre projet. L’équipe pourra vous répondre selon votre besoin.";
+    }
+    if (/\b(contact|telephone|numero|whatsapp)\b/.test(normalized)) {
+      return "Vous pouvez joindre l’équipe sur WhatsApp ou par téléphone au +221 75 745 70 02, ou par e-mail à innovadevsn@gmail.com.";
+    }
+    return "";
+  }
+
   function setOpen(open) {
     panel.classList.toggle("is-open", open);
     panel.setAttribute("aria-hidden", open ? "false" : "true");
@@ -119,6 +133,16 @@
     if (conversation.length && conversation[0].role !== "user") conversation.shift();
     saveConversation();
     input.value = "";
+    suggestions.hidden = true;
+
+    var quickReply = getQuickReply(text);
+    if (quickReply) {
+      addMessage(quickReply, "assistant");
+      conversation.push({ role: "assistant", content: quickReply });
+      saveConversation();
+      return;
+    }
+
     send.disabled = true;
     send.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i>';
     var pending = addMessage("Je prépare une réponse…", "assistant id-chat-pending");
@@ -129,7 +153,7 @@
       var response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: conversation.slice(-8) }),
+        body: JSON.stringify({ messages: conversation.slice(-6) }),
         signal: controller.signal,
       });
       var data = await response.json().catch(function () { return {}; });
