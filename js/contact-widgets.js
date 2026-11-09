@@ -62,6 +62,25 @@
     }
   }
 
+  function syncChatViewport() {
+    if (!window.visualViewport) return;
+    panel.style.setProperty("--id-chat-viewport-height", window.visualViewport.height + "px");
+    panel.style.setProperty("--id-chat-viewport-top", window.visualViewport.offsetTop + "px");
+  }
+
+  if (window.visualViewport) {
+    syncChatViewport();
+    window.visualViewport.addEventListener("resize", syncChatViewport);
+    window.visualViewport.addEventListener("scroll", syncChatViewport);
+  }
+
+  input.addEventListener("focus", function () { panel.classList.add("is-keyboard-open"); });
+  input.addEventListener("blur", function () {
+    window.setTimeout(function () {
+      if (document.activeElement !== input) panel.classList.remove("is-keyboard-open");
+    }, 120);
+  });
+
   async function ask(question) {
     var text = (question || "").trim();
     if (!text || send.disabled) return;

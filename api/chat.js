@@ -32,7 +32,7 @@ module.exports = async function handler(req, res) {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     console.error("GEMINI_API_KEY is missing from the Vercel Development environment.");
-    return res.status(503).json({ error: "L’assistant n’est pas encore configuré." });
+    return res.status(503).json({ error: "Le service de réponse est momentanément indisponible. Réessaie plus tard ou contacte-nous sur WhatsApp." });
   }
 
   const input = req.body && Array.isArray(req.body.messages) ? req.body.messages : [];
@@ -64,7 +64,7 @@ module.exports = async function handler(req, res) {
         body: JSON.stringify({
           systemInstruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
           contents: messages,
-          generationConfig: { maxOutputTokens: 180, temperature: 0.3 },
+          generationConfig: { maxOutputTokens: 360, temperature: 0.3 },
         }),
       });
     } finally {
@@ -72,14 +72,24 @@ module.exports = async function handler(req, res) {
     }
 
     if (!response.ok) {
-      console.error("Gemini API returned status", response.status);
+      let providerError = {};
+      try {
+        providerError = await response.json();
+      } catch (_) {
+        // Keep diagnostics useful even when the provider returns a non-JSON body.
+      }
+      console.error("AI provider request failed", JSON.stringify({
+        status: response.status,
+        code: providerError.error?.status || providerError.error?.code || null,
+        message: providerError.error?.message || null,
+      }));
       if (response.status === 429) {
-        return res.status(503).json({ error: "La limite gratuite de Gemini est atteinte pour le moment. Réessaie un peu plus tard ou contacte-nous sur WhatsApp." });
+        return res.status(503).json({ error: "Le service est très sollicité pour le moment. Réessaie un peu plus tard ou contacte-nous sur WhatsApp." });
       }
       if (response.status === 400 || response.status === 401 || response.status === 403) {
-        return res.status(503).json({ error: "La clé ou la configuration Gemini est refusée. Vérifie la clé dans les réglages Vercel et Google AI Studio." });
+        return res.status(503).json({ error: "Le service de réponse rencontre un problème de configuration. Réessaie plus tard ou contacte-nous sur WhatsApp." });
       }
-      return res.status(502).json({ error: "Gemini est temporairement indisponible. Réessaie dans un instant ou contacte-nous sur WhatsApp." });
+      return res.status(502).json({ error: "Désolé, je n’ai pas pu préparer une réponse pour le moment. Réessaie dans un instant ou contacte-nous sur WhatsApp." });
     }
 
     const result = await response.json();
@@ -96,7 +106,7 @@ module.exports = async function handler(req, res) {
   } catch (error) {
     console.error("Gemini request failed", error && error.name ? error.name : "unknown error");
     if (error && error.name === "AbortError") {
-      return res.status(504).json({ error: "Gemini met trop de temps à répondre. Réessaie avec une question plus courte." });
+      return res.status(504).json({ error: "La réponse prend trop de temps. Réessaie avec une question plus courte." });
     }
     return res.status(502).json({ error: "Une erreur est survenue. Réessaie ou contacte-nous sur WhatsApp." });
   }

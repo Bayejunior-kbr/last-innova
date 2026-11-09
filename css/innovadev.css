@@ -1823,10 +1823,16 @@ main, section, footer { animation: tmPageIn 0.5s ease; }
   .id-floating-actions { right: 14px; bottom: calc(14px + env(safe-area-inset-bottom)); gap: 10px; }
   .id-assistant-toggle, .id-whatsapp-float { width: 52px; height: 52px; flex-basis: 52px; font-size: 1.2rem; }
   .id-chat-panel {
-    inset: 0; width: 100%; height: 100vh; height: 100dvh; max-height: none;
+    inset: var(--id-chat-viewport-top, 0px) 0 auto;
+    width: 100%; height: var(--id-chat-viewport-height, 100dvh); max-height: var(--id-chat-viewport-height, 100dvh);
     border: 0; border-radius: 0; transform-origin: center bottom;
   }
-  .id-chat-header { padding-top: calc(17px + env(safe-area-inset-top)); }
+  .id-chat-header { flex: 0 0 auto; padding-top: calc(12px + env(safe-area-inset-top)); padding-bottom: 12px; }
+  .id-chat-messages { flex: 1 1 0; }
+  .id-chat-form, .id-chat-suggestions, .id-chat-note, .id-chat-whatsapp { flex: 0 0 auto; }
+  .id-chat-panel.is-keyboard-open .id-chat-suggestions,
+  .id-chat-panel.is-keyboard-open .id-chat-note,
+  .id-chat-panel.is-keyboard-open .id-chat-whatsapp { display: none; }
   .id-chat-whatsapp { padding-bottom: calc(12px + env(safe-area-inset-bottom)); }
 }
 @media (prefers-reduced-motion: reduce) {
