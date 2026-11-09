@@ -68,7 +68,11 @@ module.exports = async function handler(req, res) {
         body: JSON.stringify({
           systemInstruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
           contents: messages,
-          generationConfig: { maxOutputTokens: 400, temperature: 0.5 },
+          generationConfig: {
+            maxOutputTokens: 512,
+            temperature: 0.5,
+            thinkingConfig: { thinkingLevel: "minimal" },
+          },
         }),
       });
     } finally {
@@ -104,7 +108,11 @@ module.exports = async function handler(req, res) {
       .trim();
 
     if (candidate?.finishReason && candidate.finishReason !== "STOP") {
-      console.warn("AI response ended with finish reason", candidate.finishReason);
+      console.warn("AI response ended early", JSON.stringify({
+        finishReason: candidate.finishReason,
+        thoughtsTokens: result.usageMetadata?.thoughtsTokenCount || 0,
+        answerTokens: result.usageMetadata?.candidatesTokenCount || 0,
+      }));
     }
 
     if (!answer) {
