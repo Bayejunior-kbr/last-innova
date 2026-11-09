@@ -1,6 +1,7 @@
 (function () {
   var phone = "221757457002";
   var welcome = "Bonjour ! Je suis l’assistant virtuel d’InnovaDEV. Je peux vous renseigner sur nos services et vous aider à préparer votre projet.";
+  var historyKey = "innovadev-chat-history-v1";
   var conversation = [];
 
   var wrapper = document.createElement("div");
@@ -50,6 +51,33 @@
     return item;
   }
 
+  function saveConversation() {
+    try {
+      window.localStorage.setItem(historyKey, JSON.stringify(conversation.slice(-40)));
+    } catch (_) {
+      // The chat still works when browser storage is unavailable or full.
+    }
+  }
+
+  function restoreConversation() {
+    try {
+      var saved = JSON.parse(window.localStorage.getItem(historyKey) || "[]");
+      if (!Array.isArray(saved)) return;
+      conversation = saved
+        .filter(function (message) {
+          return message && ["user", "assistant"].includes(message.role) && typeof message.content === "string";
+        })
+        .map(function (message) { return { role: message.role, content: message.content.slice(0, 1200) }; })
+        .slice(-40);
+      if (conversation.length && conversation[0].role !== "user") conversation.shift();
+      conversation.forEach(function (message) {
+        addMessage(message.content, message.role);
+      });
+    } catch (_) {
+      conversation = [];
+    }
+  }
+
   function setOpen(open) {
     panel.classList.toggle("is-open", open);
     panel.setAttribute("aria-hidden", open ? "false" : "true");
@@ -87,6 +115,9 @@
 
     addMessage(text, "user");
     conversation.push({ role: "user", content: text });
+    if (conversation.length > 40) conversation = conversation.slice(-40);
+    if (conversation.length && conversation[0].role !== "user") conversation.shift();
+    saveConversation();
     input.value = "";
     send.disabled = true;
     send.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i>';
@@ -109,6 +140,9 @@
       }
       pending.textContent = data.answer;
       conversation.push({ role: "assistant", content: data.answer });
+      if (conversation.length > 40) conversation = conversation.slice(-40);
+      if (conversation.length && conversation[0].role !== "user") conversation.shift();
+      saveConversation();
     } catch (error) {
       if (error && error.fromApi) {
         pending.textContent = error.message;
@@ -143,4 +177,6 @@
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape" && panel.classList.contains("is-open")) setOpen(false);
   });
+
+  restoreConversation();
 })();
