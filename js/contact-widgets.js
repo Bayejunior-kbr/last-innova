@@ -36,13 +36,14 @@
         '<button class="id-chat-close" type="button" aria-label="Fermer l’assistant"><i class="fas fa-times"></i></button>' +
       '</header>' +
       '<div class="id-chat-messages" id="id-chat-messages" role="log" aria-live="polite" aria-relevant="additions text"></div>' +
-      '<div class="id-chat-suggestions" aria-label="Questions fréquentes">' +
+      '<div class="id-chat-suggestions" id="id-chat-suggestions" aria-label="Questions fréquentes">' +
         '<button type="button" data-question="Quels services proposez-vous ?">Nos services</button>' +
         '<button type="button" data-question="Comment obtenir un devis ?">Obtenir un devis</button>' +
         '<button type="button" data-question="Comment se déroule un projet ?">Étapes d’un projet</button>' +
         '<button type="button" data-question="Combien coûte un site web ?">Prix d’un site</button>' +
         '<button type="button" data-question="Combien de temps faut-il pour réaliser mon projet ?">Délais d’un projet</button>' +
       '</div>' +
+      '<button class="id-chat-faq-toggle" type="button" aria-controls="id-chat-suggestions" aria-expanded="false" hidden>Questions fréquentes</button>' +
       '<form class="id-chat-form" id="id-chat-form">' +
         '<label class="sr-only" for="id-chat-input">Votre message</label>' +
         '<input id="id-chat-input" name="message" type="text" maxlength="1200" autocomplete="off" placeholder="Écrivez votre message…" required>' +
@@ -65,6 +66,7 @@
   var input = wrapper.querySelector("#id-chat-input");
   var messages = wrapper.querySelector("#id-chat-messages");
   var suggestions = wrapper.querySelector(".id-chat-suggestions");
+  var faqToggle = wrapper.querySelector(".id-chat-faq-toggle");
   var send = form.querySelector("button[type=submit]");
 
   function addMessage(text, who) {
@@ -149,11 +151,18 @@
     saveConversation();
     input.value = "";
     suggestions.hidden = true;
+    faqToggle.hidden = false;
+    faqToggle.setAttribute("aria-expanded", "false");
 
-    var faq = preparedFaq.find(function (item) { return normalizeQuestion(item.question) === normalizeQuestion(text); });
-    if (faq) {
-      addMessage(faq.answer, "assistant");
-      conversation.push({ role: "assistant", content: faq.answer });
+    var normalizedText = normalizeQuestion(text);
+    var faq = preparedFaq.find(function (item) { return normalizeQuestion(item.question) === normalizedText; });
+    var shortReply = faq && faq.answer;
+    if (!shortReply && ["bonjour", "bonsoir", "salut", "hello", "coucou"].includes(normalizedText)) {
+      shortReply = normalizedText === "bonsoir" ? "Bonsoir ! Comment puis-je vous aider ?" : "Bonjour ! Comment puis-je vous aider ?";
+    }
+    if (shortReply) {
+      addMessage(shortReply, "assistant");
+      conversation.push({ role: "assistant", content: shortReply });
       if (conversation.length > 40) conversation = conversation.slice(-40);
       saveConversation();
       return;
@@ -214,9 +223,19 @@
     suggestions.hidden = true;
     ask(button.getAttribute("data-question"));
   });
+  faqToggle.addEventListener("click", function () {
+    suggestions.hidden = false;
+    faqToggle.hidden = true;
+    faqToggle.setAttribute("aria-expanded", "true");
+    suggestions.querySelector("button").focus();
+  });
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape" && panel.classList.contains("is-open")) setOpen(false);
   });
 
   restoreConversation();
+  if (conversation.length) {
+    suggestions.hidden = true;
+    faqToggle.hidden = false;
+  }
 })();
